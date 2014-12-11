@@ -12,11 +12,11 @@
     <string name="title_activity_gyroscope">GyroscopeActivity</string>
     <string name="title_activity_application">ApplicationActivity</string>
 
-    <string name="me">Me:</string>
+    <string name="me">Me</string>
     <string name="activity">Activity</string>
     <string name="heartrate">Heart rate</string>
     <string name="appusage">App Usage</string>
-    <string name="device">Device:</string>
+    <string name="device">Device</string>
     <string name="battery">Battery</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="amlight">Ambient Light</string>

@@ -97,12 +97,10 @@ public class MainActivity extends Activity  implements SensorEventListener {
             TextView view=(TextView)holder.itemView.findViewById(R.id.time_text);
 
             if (name[position].contains("Me") || name[position].contains("Device")) {
-                //Log.e(",xxxxxxx,,,,","me or device");
                 view.setTextColor(Color.parseColor(getResources().getString(R.string.custom_orange)));
                 view.setTextScaleX(1.3f);
                 view.setTypeface(null, Typeface.BOLD);
-                view.setTypeface(null, Typeface.ITALIC);
-                //view.setTextAppearance(this, android.R.style.TextAppearance_Large);
+                //view.setTypeface(null, Typeface.ITALIC);
                 view.setText(name[position]);
                 // getResources().getString(R.string.custom_orange)
                 // "#FFBF00"
