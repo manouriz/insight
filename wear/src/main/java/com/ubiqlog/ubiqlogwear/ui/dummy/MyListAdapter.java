@@ -21,12 +21,10 @@ public class MyListAdapter extends BaseAdapter {
     private Activity activity;
     private Object[] data;
     private static LayoutInflater inflater = null;
-    private String rowClass = "blue";
 
-    public MyListAdapter(Activity a, Object[] d, String rowClass) {
+    public MyListAdapter(Activity a, Object[] d) {
         activity = a;
         data = d;
-        this.rowClass = rowClass;
         inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -52,38 +50,35 @@ public class MyListAdapter extends BaseAdapter {
         TextView item_Date = (TextView) iRow.findViewById(R.id.tvDate);
         TextView item_Title = (TextView) iRow.findViewById(R.id.tvTitle);
 
+
+        //map data to views: data[position].time, data[position].date, data[position].text, data[position].icon
         item_Time.setText("23:55");
         item_Date.setText("01-02-2015");
         item_Title.setText(data[position].toString());
 
-//        if (position == 0)
-//            item_StatusImage.setImageResource(R.drawable.baricons_start);
-//        else if (position == getCount() - 1)
-//            item_StatusImage.setImageResource(R.drawable.baricons_end);
-//        else
-//            item_StatusImage.setImageResource(R.drawable.baricons_mid);
-        item_StatusImage.setImageResource(getBackgroundImage(getCount(), position));
+
+        //set status image's background
+        item_StatusImage.setBackground(activity.getResources().getDrawable(getBackgroundImage(getCount(), position)));
+
+        //display a status icon beside of each event
+        //#if (data[position].icon == null)
+        item_StatusImage.setImageResource(R.drawable.baricons_bullet);
+        //#else
+        //#    item_StatusImage.setImageResource(data[position].icon);
+
+        item_StatusImage.setPadding(6, 6, 6, 6);
 
         return iRow;
     }
 
     public int getBackgroundImage(int count, int position) {
-        if (rowClass.contains("blue")) {
-            if (position == 0)
-                return R.drawable.baricons_start;
-            else if (position == count - 1)
-                return R.drawable.baricons_end;
-            else
-                return R.drawable.baricons_mid;
+        if (position == 0)
+            return R.drawable.baricons_start;
+        else if (position == count - 1)
+            return R.drawable.baricons_end;
+        else
+            return R.drawable.baricons_mid;
 
-        } else if (rowClass.contains("orange")) {
-            if (position == 0)
-                return R.drawable.baricons_starto;
-            else if (position == count - 1)
-                return R.drawable.baricons_endo;
-            else
-                return R.drawable.baricons_mido;
-        }
-        return 0;
+
     }
 }

@@ -16,15 +16,20 @@ public class wBluetooth extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barlist);
 
+        //set Titlebar Title
         TextView tvTitle = (TextView) findViewById(R.id.tvTitle);
-        tvTitle.setText("Bluetooth");
+        tvTitle.setText(R.string.title_activity_wbluetooth);
 
+        // set Titlebar Logo
         ImageView tvTitleLogo = (ImageView) findViewById(R.id.ivTitleLogo);
         tvTitleLogo.setImageResource(R.drawable.bluetoothicn2);
 
+        //test data
         String data[] = new String[]{"Connect", "Disconnect", "Connect", "Connect", "Disconnect", "Connect"};
+
+        //map data to layout
         ListView list = (ListView) findViewById(R.id.listView);
-        MyListAdapter adapter = new MyListAdapter(this, data, "blue");
+        MyListAdapter adapter = new MyListAdapter(this, data);
         list.setAdapter(adapter);
 
     }

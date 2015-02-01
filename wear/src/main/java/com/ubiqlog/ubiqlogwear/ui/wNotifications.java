@@ -16,15 +16,20 @@ public class wNotifications extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barlist);
 
+        //set Titlebar Title
         TextView tvTitle = (TextView) findViewById(R.id.tvTitle);
-        tvTitle.setText("Notifications");
+        tvTitle.setText(R.string.title_activity_wnotifications);
 
+        //set Titlebar Logo
         ImageView tvTitleLogo = (ImageView) findViewById(R.id.ivTitleLogo);
         tvTitleLogo.setImageResource(R.drawable.notificn2);
 
+        //test data
         String data[] = new String[]{"Facebook", "Email", "Battery", "Email", "Email", "Viber"};
+
+        //map data to layout
         ListView list = (ListView) findViewById(R.id.listView);
-        MyListAdapter adapter = new MyListAdapter(this, data, "orange");
+        MyListAdapter adapter = new MyListAdapter(this, data);
         list.setAdapter(adapter);
 
     }
